@@ -1,3 +1,10 @@
+#### 运行
+1. npm install
+2. cd client 
+3. npm install
+4. cd ../
+5. npm run dev
+
 #### 项目界面
 * 登录界面
 ![login.jpg](https://i.loli.net/2019/08/16/jETyStIDa4GfRNU.jpg)
@@ -9,10 +16,5 @@
 ![add.jpg](https://i.loli.net/2019/08/16/DoFGyqKtU42HWhg.jpg)
 * 模糊搜索
 ![search.jpg](https://i.loli.net/2019/08/16/LYCVg5MsT2yGIr3.jpg)
-#### 运行
-1. npm install
-2. cd client 
-3. npm install
-4. cd ../
-5. npm run dev
+
 
