@@ -121,13 +121,21 @@ export default {
         //  增加课程默认值
         pid: "",
         name: "",
-        grade: ""
+				tname: "",
+				info: "",
+				time:"",
+				num: "",
+				lnum: ""
       },
       changeForm: {
         // 修改课程弹框默认值
         pid: "",
         name: "",
-        grade: ""
+				tname: "",
+				info: "",
+				time:"",
+				num: "",
+				lnum: ""
       },
       paginations: {
         // 分页默认参数
@@ -137,14 +145,14 @@ export default {
         page_sizes: [10, 15, 20],
         layout: "total, sizes, prev, pager, next, jumper"
       },
-      teacherData: [], // 获取的课程数据
+      course: [], // 获取的课程数据
       tableData: [], // 表格显示的课程数据
       formLabelWidth: "120px" // 宽度
     };
   },
 
   created() {
-    this.getTeachers("", this.sort, "pid"); // 在页面刷新前获得表格数据， 并传默认参数用于排序
+    this.getCourses("", this.sort, "pid"); // 在页面刷新前获得表格数据， 并传默认参数用于排序
   },
 
   watch: {
@@ -153,16 +161,16 @@ export default {
       const that = this;
       if (this.searchTimer != null) clearTimeout(this.searchTimer); // 防抖函数
       this.searchTimer = setTimeout(function() {
-        that.getTeachers(val);
+        that.getCourses(val);
       }, 500);
     }
   },
 
   methods: {
-    getTeachers(keyword, sort, sortItem) {
+    getCourses(keyword, sort, sortItem) {
       //获取表格数据，排序、模糊搜索共用接口
       this.$http
-        .get("/users/allteacher", {
+        .get("/users/allcourses", {
           params: {
             // 给后台传参，用于数据库分页，再获取相应的数据
             page_index: this.paginations.page_index, // 当前页
@@ -180,7 +188,7 @@ export default {
     },
 
     submit_add() {
-      // 单个增加教师
+      // 单个增加课程
       this.dialogAddCourse = false;
       this.$http.post("/users/addcourse", this.dialogForm).then(res => {
         this.$message({
@@ -192,7 +200,7 @@ export default {
     },
 
     submit_change() {
-      // 单个修改教师提交事件
+      // 单个修改课程提交事件
       this.dialogChangeCourse = false;
       this.$http.post("/users/changecourse", this.changeForm).then(res => {
         this.$message({
@@ -208,7 +216,7 @@ export default {
       //  每页显示数量修改
       this.paginations.page_index = 1; //  跳转回第一页
       this.paginations.page_size = page_size;
-      this.getTeachers("", this.sort, "pid");
+      this.getCourses("", this.sort, "pid");
     },
 
     handleCurrentChange(page) {

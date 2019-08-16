@@ -46,4 +46,5 @@ app.get('/', (req, res) => {
 app.use('/api/users', students)
 app.use('/api/users', teachers)
 app.use('/api/users', admins)
+app.use('/api/users', courses)
 app.listen(3000);

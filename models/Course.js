@@ -1,13 +1,35 @@
 const mongoose = require('mongoose');
 
 const courseSchema = new mongoose.Schema({
-	'cid'              : String,
-	"cName"            : String,
-	'tName'            : String,
-	'sNum'             : String,
-	'profile'          : String,
-	'grade'            : String,
-	'weekDate'         : String
+	pid: {
+		type: String,
+		tequired: true
+	},
+	name:{
+		type: String,
+		required:true 
+	},
+	tname:{
+		type: String,
+		required:true
+	},
+	time:{
+		type: String,
+		required:true
+	},
+	num:{
+		type: Number,
+		required:true
+	},
+	lnum:{
+		type: Number,
+		default: 0
+		
+	},
+	info:{
+		type: String
+		// required:true
+	},
 });
 
 courseSchema.statics.addOneCourse = function(data, callback){
@@ -15,5 +37,5 @@ courseSchema.statics.addOneCourse = function(data, callback){
 	c.save(callback);
 }
 
-const Course = mongoose.model('Course', courseSchema);
+const Course = mongoose.model('courses', courseSchema);
 module.exports = Course;
