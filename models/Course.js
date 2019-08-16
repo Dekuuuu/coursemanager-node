@@ -26,11 +26,15 @@ const courseSchema = new mongoose.Schema({
 		default: 0
 		
 	},
-	info:{
-		type: String
-		// required:true
+	grade:{
+		type: String,
+		required: true
 	},
-});
+	student:{
+		type: Array,
+		default: []
+	},
+})
 
 courseSchema.statics.addOneCourse = function(data, callback){
 	const c = new Course(data);

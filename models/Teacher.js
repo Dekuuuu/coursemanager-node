@@ -31,8 +31,8 @@ const UserSchema = new Schema({
 		default:false
 	},
 	course:{
-		type: String,
-		required:true
+		type: Array,
+		default: []
 	}
 })
 

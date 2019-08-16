@@ -25,6 +25,9 @@ const studentSchema = new Schema({
 	changePassword:{
 		type: Boolean,
 		default:false
+	},
+	course:{
+		type: Array
 	}
 });
 

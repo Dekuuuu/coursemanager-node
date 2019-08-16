@@ -126,7 +126,8 @@ router.get(
 				$or : [
 					{'pid': regexp},
 					{'name': regexp},
-					{'grade': regexp}
+					{'grade': regexp},
+					{'course': regexp}
 				]
 			}
 		}

@@ -25,6 +25,7 @@ router.post(
 		if (req.body.tname) courseFields.tname = req.body.tname;
 		if (req.body.num) courseFields.num = req.body.num;
 		if (req.body.info) courseFields.info = req.body.info;
+		if (req.body.grade) courseFields.grade = req.body.grade;
     new Course(courseFields).save().then(course => {
       res.json(course);
     });
@@ -53,8 +54,6 @@ router.get(
 					{'name': regexp},
 					{'tname': regexp},
 					{'info': regexp},
-					{'num': regexp},
-					{'lnum': regexp},
 					{'time': regexp}
 				]
 			}
@@ -100,15 +99,14 @@ router.post('/changeteacher', passport.authenticate('jwt', { session: false }),
 		})
 })
 
-// 删除学生
+// 删除课程
 router.delete(
-	'/deletetea',
-  passport.authenticate('jwt', { session: false }),
+	'/deletecou',
+  // passport.authenticate('jwt', { session: false }),
   (req, res) => {
-		console.log(url.parse(req.url, true).query._id)
-    Teacher.findOneAndRemove({ _id: url.parse(req.url, true).query._id })
-      .then(teacher => {
-      teacher.save().then(teacher => res.json(teacher))
+    Course.findOneAndRemove({ _id: url.parse(req.url, true).query._id })
+      .then( course => {
+				course.save().then(course => res.json(course))
     })
       .catch(err => res.status(404).json('删除失败!'));
 	}
