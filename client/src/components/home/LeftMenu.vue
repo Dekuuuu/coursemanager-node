@@ -28,7 +28,7 @@
             <span>课程管理</span>
           </div>
         </template>
-        <el-menu-item index="3-1">课程列表</el-menu-item>
+        <el-menu-item index="allcourse">课程列表</el-menu-item>
       </el-submenu>
       <el-submenu index="4">
         <template slot="title">
@@ -37,7 +37,7 @@
             <span>数据统计</span>
           </div>
         </template>
-        <el-menu-item index="4-1">选课情况</el-menu-item>
+        <el-menu-item index="#">选课情况</el-menu-item>
       </el-submenu>
     </el-menu>
   </el-aside>

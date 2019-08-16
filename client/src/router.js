@@ -9,6 +9,7 @@ import Role from '@/components/admin/Role'
 import StudentIndex from '@/components/student/Index'
 import CourseList from '@/components/student/CourseList'
 import MyCourse from '@/components/student/MyCourse'
+import AllCourse from '@/components/course/AllCourse'
 
 Vue.use(Router)
 
@@ -45,6 +46,11 @@ const router = new Router ({
 					name: 'roles',
 					path: 'roles',
 					component: Role
+				},
+				{
+					name: 'allcourse',
+					path: 'allcourse',
+					component: AllCourse
 				}
 			]
 		},
