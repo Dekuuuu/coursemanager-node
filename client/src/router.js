@@ -6,6 +6,9 @@ import Student from '@/components/user/Student'
 import Teacher from '@/components/user/Teacher'
 import Access from '@/components/admin/Access'
 import Role from '@/components/admin/Role'
+import StudentIndex from '@/components/student/Index'
+import CourseList from '@/components/student/CourseList'
+import MyCourse from '@/components/student/MyCourse'
 
 Vue.use(Router)
 
@@ -45,6 +48,23 @@ const router = new Router ({
 				}
 			]
 		},
+		{
+			name: 'student',
+			path: '/student',
+			component: StudentIndex,
+			children: [
+				{
+					name: '/courselist',
+					path: '/courselist',
+					component: CourseList
+				},
+				{
+					name: '/mycourse',
+					path: '/mycourse',
+					component: MyCourse
+				},
+			]
+		}
   ]
 })
 

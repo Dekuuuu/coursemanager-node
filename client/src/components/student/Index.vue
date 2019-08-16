@@ -16,7 +16,7 @@ import HeadNav from './HeadNav'
 import LeftMenu from './LeftMenu'
 
 export default {
-	name: 'index',
+	name: 'student',
 	components: {
 		HeadNav,
 		LeftMenu
